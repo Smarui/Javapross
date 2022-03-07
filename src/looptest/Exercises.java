@@ -1,8 +1,6 @@
 package looptest;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * 1. 使用while结构，计算从1到100之间的数的和。
@@ -348,7 +346,7 @@ public class Exercises {
         //drawLozenge(9);
         //drawLozenge2(9);
         //drawTable(9);
-        yangHuiTriangle(9);
+        //yangHuiTriangle(9);
 
 
     }
