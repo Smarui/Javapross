@@ -1,6 +1,8 @@
 package looptest;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -34,16 +36,7 @@ import java.util.Scanner;
  *
  *     并输出学生姓名、每门课程的名称和该学生的成绩、该学生的总成绩
  *
- * 14. 比较数组
  *
- *     ```
- *     两个"相等"数组，必须保证两个两个数组满足以下条件:
- *
- *     - 两个数组的长度相等
- *     - 两个数组中相应位置的元素全部相等
- *
- *     尝试设计程序，判断两个数组变量所引用的数组对象是否相等:
- *     ```
  *
  * 15. 六十甲子
  *
@@ -220,6 +213,7 @@ public class ExercisesArray {
         System.out.println(Arrays.binarySearch(arr,a));
          */
             // 4. 求整型数组中所有元素的平均值。 5. 将整型数组使用冒泡排序方法，排成升序数组。6. 将整型数组使用冒泡排序方法，排成降序数组。7. 获得整型数组中最大的元素值。 9. 获得整型数组中最小的元素值。
+        /*
         Scanner scanner = new Scanner(System.in);
         int [] arr = new int[100];
         for(int i = 0 , len =arr.length; i < len ; i++ ){
@@ -272,10 +266,43 @@ public class ExercisesArray {
         System.out.println(max +"---" +min);
         System.out.println("-----------------------------------------------------------");
         //使用多个函数的形式完成石头剪刀布游戏。使用Scanner,Random,Integer等类。
-        int playO = 0 ,playT = 0;
+        String[] names = { "雷军" , "马云" , "周鸿祎" , "丁磊" , "李彦宏" };
+        String[] courses = { "C++" , "Java" , "English" };
+        int[][] scores = {
+                            {  90 ,  89 ,  75 } ,
+                            {  59 ,  40 , 100 } ,
+                            { 100 ,  99 ,  80 } ,
+                            {  80 ,  61 ,  61 } ,
+                            {  60 , 100 ,  99 } ,
+            };
+        Map<Integer,Integer> map = new HashMap<>();
+        int [] scoresum = new int[names.length];
+        for(int i = 0 ,len = names.length ;i<len; i++){
+            for(int j = 0 , len1 = courses.length;j<len1;j++){
+                scoresum[i] += scores[i][j];
+            }
+        }
+        for(int i = 0,len = names.length;i<len;i++){
+            map.put(scoresum[i],i);
+        }
+        System.out.print("      ");
+        for(String i :courses){
+            System.out.print(i+"   ");
+        }
+        Arrays.sort(scoresum);
+        System.out.println("总分");
+        for(int i = 0 ,len=names.length ;i<len; i++){
+            System.out.print(names[map.getOrDefault(scoresum[len-i-1],0)] + "   ");
+            for(int j = 0, len1 = courses.length;j<len1;j++){
+               System.out.print(scores[map.getOrDefault(scoresum[len-i-1],0)][j]+"     ");
+            }
+            System.out.println(scoresum[len-i-1]);
 
+        }
 
-
-
+         */
+        int arr1[] = new int[]{1,2,3,4,5};
+        int arr2[] = new int[]{1,2,3,4,5};
+        System.out.println(Arrays.equals(arr1,arr2));
     }
 }
