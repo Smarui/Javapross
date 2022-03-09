@@ -1,9 +1,6 @@
 package looptest;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * @author small瑞
@@ -67,21 +64,11 @@ import java.util.Scanner;
  *     十天干与十二地支按顺序两两相配，从**甲子**到**癸亥**，共六十个组合，称六十甲子。( 60年一个循环 )
  *     ```
  *
- * 16. 33选7
- *
- *     ```
- *     编写一段程序，实现从 1 到 33 之间随机选择 7 个不重复的数字放入到数组中，最后将遍历数组输出这7个数字。
- *     ```
- *
+
  * 17. 翻转数组
  *
  *     ```
- *     char[][]  chunxiao = {
- *                            { '春' , '眠' , '不' , '觉' , '晓' }  ,
- *                            { '处' , '处' , '蚊' , '子' , '咬' } ,
- *                            { '打' , '上' , '敌' , '敌' , '畏' } ,
- *                            { '不' , '知' , '死' , '了' , '谁' }
- *                          };
+
  *
  *     ```
  *
@@ -95,29 +82,7 @@ import java.util.Scanner;
  *       谁    畏    咬    晓
  *     ```
  *
- * 18. 算术运算练习器
- *
- *     ```
- *     编写程序，实现一个简单的算术运算的练习器，程序运行时随机生成两个两位数，
- *           和一个运算符（+，-，×，/），并组成一个表达式输出出来，然后读取用户的输入答案，
- *           如果输入答案正确，则输出祝贺信息，若输入答案错误则提示重来一次。
- *     ```
- *
- * 19. 酒店前台客房管理系统（控制台版本）
- *
- *     ```
- *     为某酒店设计一套简单的前台房间管理系统，该系统可以通过在命令行输入命令来为客人办理入住和退房手续。要求该系统支持通过命令行输入以下命令来进行入住，退房及查询的操作：
- *     search  ：查询所有房间的状态
- *     in 1202 tangliang  ：姓名为tangliang的客人入住1202房间
- *     out 1202：1202房间退房
- *     quit：退出程序
- *     说明 ：
- *     1）该习题主要考察的知识点：控制台输入，循环控制，数组的使用，方法调用等。
- *     2）酒店房间的状态可以用一个二维数组来存放，
- *          如果有客人已经入住，则存放该客人的姓名，如果没有客人入住，则存放null值。
- *     3）可以从控制台读入命令的第一个单词，来决定调用哪个方法负责处理该类命令。
- *     4）可以将每个命令要完成的功能分别用一个方法来描述，在main方法中调用这些方法。
- *     ```
+
  *
  * 20. 学生成绩查询系统（控制台版本）
  *
@@ -304,5 +269,60 @@ public class ExercisesArray {
         int arr1[] = new int[]{1,2,3,4,5};
         int arr2[] = new int[]{1,2,3,4,5};
         System.out.println(Arrays.equals(arr1,arr2));
+        // 16. 33选7 编写一段程序，实现从 1 到 33 之间随机选择 7 个不重复的数字放入到数组中，最后将遍历数组输出这7个数字。
+        Object[] cur = new Object[7] ;
+        Set<Double> set = new HashSet<>();
+        while(set.size()<7){
+            set.add(Math.random()*33);
+        }
+        cur = set.toArray();
+        System.out.println(Arrays.toString(cur));
+        System.out.println("--------------------------------");
+        char[][]  chunxiao = {
+                { '春' , '眠' , '不' , '觉' , '晓' }  ,
+                { '处' , '处' , '蚊' , '子' , '咬' } ,
+                { '打' , '上' , '敌' , '敌' , '畏' } ,
+                { '不' , '知' , '死' , '了' , '谁' }
+        };
+        for(int i = 0 , len = chunxiao[0].length ; i<len ; i++){
+            for(int j = 0 , len1 = chunxiao.length ; j < len1 ; j++){
+                System.out.print(chunxiao[j][i]+"  ");
+            }
+            System.out.println();
+        }
+        System.out.println("--------------------------------------------------");
+        //* 18. 算术运算练习器
+        // *
+        // *     ```
+        // *     编写程序，实现一个简单的算术运算的练习器，程序运行时随机生成两个两位数，
+        // *           和一个运算符（+，-，×，/），并组成一个表达式输出出来，然后读取用户的输入答案，
+        // *           如果输入答案正确，则输出祝贺信息，若输入答案错误则提示重来一次。
+        // *     ```
+        // *
+        /*
+        Scanner scanner = new Scanner(System.in);
+        List<Character> list = new ArrayList<>();
+        list.add('+');
+        list.add('-');
+        list.add('*');
+        list.add('/');
+        double x = Math.random()*100;
+        double y = Math.random()*100;
+        int ran = (int)(Math.random()*4);
+        System.out.println("请输入以下算式你认为的正确答案:");
+        System.out.println(x+" "+list.get(ran)+" "+y+" "+"="+"?");
+        double end = 0.0;
+        if(ran ==0) end = x+y;
+        if(ran ==1) end = x-y;
+        if(ran ==2) end = x*y;
+        if(ran ==3) end = x/y;
+        double ans= scanner.nextDouble();
+        if(ans == ran)System.out.println("恭喜回答正确!");
+        else System.out.println("很遗憾回答错误!");
+        */
+
+
+
+
     }
 }
